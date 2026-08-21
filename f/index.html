@@ -262,7 +262,8 @@ function formatToothPosition(raw){
   return `${arch} ${side} ${names[parseInt(m[3],10)]}`;
 }
 
-// ---- Fill from URL params: ?name=&practice=&nhsfee=&fee=&tooth=&neutral= ----
+// ---- Fill from URL params: ?name=&nhsfee=&fee=&tooth=&neutral= ----
+// Practice name/phone are hardwired in the footer above (they never change).
 // neutral=1 switches this from an "you're booked in for amalgam, upgrade?" upsell
 // page into a plain, undecided-patient-facing info page: same comparison content,
 // but no assumption they've already been booked for a specific filling material.
@@ -271,7 +272,6 @@ function formatToothPosition(raw){
 (function(){
   const p = new URLSearchParams(window.location.search);
   const name = p.get('name');
-  const practice = p.get('practice') || 'Empire House Dental Surgery';
   const nhsFee = p.get('nhsfee');
   const fee = p.get('fee');
   const tooth = p.get('tooth');
