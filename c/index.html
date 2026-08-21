@@ -119,18 +119,18 @@
   </div>
 
   <footer id="footerLine">
-    Questions? Reply to the text message we sent you or call [Practice Phone].
+    Questions? Reply to the text message we sent you or call <a href="tel:01924464752">01924 464752</a>.
   </footer>
 </div>
 
 <script>
 // ---- Fill from URL params ----
-// ?name=&practice=&phone=&examfee=&nhsband1=&fillingfee=&denturefee=&emergencyxlafee=
+// Practice name and phone are hardwired above (they never change) — only the
+// patient's name and the fee figures come from the link.
+// ?name=&examfee=&nhsband1=&fillingfee=&denturefee=&emergencyxlafee=
 (function(){
   const p = new URLSearchParams(window.location.search);
   const name = p.get('name');
-  const practice = p.get('practice') || 'Empire House Dental Surgery';
-  const phone = p.get('phone') || '';
 
   const examFee = parseFloat(p.get('examfee')) || 45;
   const nhsBand1 = parseFloat(p.get('nhsband1')) || 27.90;
@@ -152,8 +152,6 @@
   document.getElementById('emergencyXlaInline').textContent = fmt(emergencyXlaFee) + '+';
   document.getElementById('s5dentInline').textContent = fmt(dentureFee);
   document.querySelectorAll('#totalBadInline, #totalBadInline2').forEach(el => el.textContent = fmt(emergencyXlaFee + dentureFee) + '+');
-
-  if(phone) document.getElementById('footerLine').innerHTML = `Questions? Reply to the text message we sent you or call ${phone}.`;
 })();
 </script>
 </body>
