@@ -285,11 +285,11 @@ function calc(){
   document.getElementById('out').textContent = '£' + monthly.toFixed(2);
 }
 
-// ---- Fill from URL params: ?name=&practice=&nhsfee=&fee=&goldfee=&tooth= ----
+// ---- Fill from URL params: ?name=&nhsfee=&fee=&goldfee=&tooth= ----
+// Practice name/phone are hardwired in the footer above (they never change).
 (function(){
   const p = new URLSearchParams(window.location.search);
   const name = p.get('name');
-  const practice = p.get('practice') || 'Empire House Dental Surgery';
   const nhsFee = p.get('nhsfee');
   const fee = p.get('fee');
   const goldFee = p.get('goldfee');
